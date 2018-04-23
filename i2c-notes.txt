@@ -1,0 +1,10 @@
+mastership on i2c
+--------------------
+
+
+https://electronics.stackexchange.com/questions/115577/how-does-multimaster-i2c-work-and-its-significance
+
+
+I2C Master is decided by who owns the bus meaning who provides the clock, in the give figure below you can see that 2 i2c masters try to access the slave device for information. Typical lythe slave could be an eeprom.
+
+When Master1 needs the bus it polls the bus whether it is free or not (if the line is low than the I2C bus is taken by someone) if the line is high it pulls down and sends across the address (7 bit and 8 bit being R/W) each of the I2C device connected to the bus samples the same and responds with an ack if it is being addressed by pulling it low. once after the required communication the master releases the bus.
